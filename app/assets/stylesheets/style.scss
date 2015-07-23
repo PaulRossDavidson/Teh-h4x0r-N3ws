@@ -1,20 +1,14 @@
 .advertisement{
-  background: #AAAAAA;
+  background-image: url('http://goo.gl/OlzrpR');
   min-height: 600px;
   padding: 0;
   padding-top: 230px;
 
-  .text{
-    margin-left: -100px;
-    font-weight: bold;
-    text-align: center;
-    width: 150%;
-    font-size: 50px;
-    -webkit-transform: rotate(-90deg);
-    -moz-transform: rotate(-90deg);
-    -ms-transform: rotate(-90deg);
-    -o-transform: rotate(-90deg);
-    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
-  }
-
+}
+body {
+  background-image: url('http://goo.gl/LzOSb0');
+  background-color: blue;
+  font-size: 2em;
+  font-weight: bold;
+  color: green;
 }

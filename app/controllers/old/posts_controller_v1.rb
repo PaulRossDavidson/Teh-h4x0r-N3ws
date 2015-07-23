@@ -42,7 +42,7 @@
 
     #check ownership (not DRY)
     # unless @post.owned_by? current_user
-    unless @post.user.id == current_user
+    unless @post.user.id != current_user
       flash[:danger] = "You do not own that post"
       redirect_to root_path
     else

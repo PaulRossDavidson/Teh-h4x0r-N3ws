@@ -8,8 +8,17 @@ Rails.application.routes.draw do
   get 'login' => 'sessions#new'
   post 'login' => 'sessions#create'
   get 'logout' => 'sessions#destroy'
+  get 'comment' => 'comments#new'
 
   # resources :posts, only:[:index,:new,:create]
-  resources :posts
+  resources :posts do
+    resources :votes, :only => [:create]
+    resources :comments, :only => [:create]
+
+  end
+  resources :users, :only => [:show] do
+    resources :votes, :only => [:create]
+  end
+
 
 end

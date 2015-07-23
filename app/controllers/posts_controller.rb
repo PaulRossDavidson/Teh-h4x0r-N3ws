@@ -28,6 +28,10 @@ class PostsController < ApplicationController
     end
   end
 
+  def show
+    @post = Post.find_by_id params[:id]
+    @comment = Comment.new
+  end
   def edit
   end
 

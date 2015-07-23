@@ -1,0 +1,20 @@
+<div class="col-sm-8">
+  <table class="table table-striped">
+    <tbody>
+
+        <tr>
+
+          <td>
+            <a href="<%= @post.link %>"><%= @post.title %></a>
+          </td>
+          <td><%= @post.user.display_name %></td>
+          <td><%= format_creation_time @post %></td>
+          <%= bootstrap_form_for [@post, @comment] do |f| %>
+          <%= f.text_field :text, placeholder: 'My interesting comment' %>
+          <%= f.submit "Comment" %>
+          <% end %>
+        </tr>
+
+    </tbody>
+  </table>
+</div>

@@ -4,15 +4,20 @@
       <% @posts.each do |post| %>
         <tr>
           <td>
-            <%= link_to "", "#", class: 'glyphicon glyphicon-chevron-up' %><br>
-            <%= link_to "", "#", class: 'glyphicon glyphicon-chevron-down' %>
-          </td>
+            <%= bootstrap_form_for [post,Vote.new] do |f| %>
+              <%= f.button "",value: 'up', class: 'btn btn-primary btn-xs glyphicon glyphicon-chevron-up' %><br>
+              <%= f.button "",value: 'down', class: 'btn btn-primary btn-xs glyphicon glyphicon-chevron-down' %>
+            <% end %>
+            </td>
           <td>
+          <%= post.votes.reduce(0){ |sum,v| sum + v.value} %>
             <a href="<%= post.link %>"><%= post.title %></a>
           </td>
           <td><%= post.user.display_name %></td>
           <td><%= format_creation_time post %></td>
-          <td>0 Comments</td>
+          <td>
+            <%= link_to "comments", post, class: 'glyphicon glyphicon-pencil' %>
+          </td>
           <td>
           <!--% if @current_user && @current_user.id == post.user.id %-->
           <% if post.owned_by? @current_user %>
@@ -27,9 +32,9 @@
 </div>
 <div class="col-sm-4">
   <div class="advertisement">
-    <div class="text">
+    <!-- <div class="text">
       THIS IS AN<br>
       ADVERTISEMENT
-    </div>
+    </div> -->
   </div>
 </div>
