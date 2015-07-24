@@ -8,7 +8,7 @@ class CommentController < ApplicationController
 
   def create
     @post = Post.find_by_id params[:post_id]
-    @comment = @post.comment.create(comment_params)
+    @comment = @post.create(comment_params)
     current_user.comments << @comment
 
   end

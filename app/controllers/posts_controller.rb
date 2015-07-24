@@ -48,7 +48,7 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    @post.delete
+    @post.find(:post_id).delete
     redirect_to root_path
   end
 
